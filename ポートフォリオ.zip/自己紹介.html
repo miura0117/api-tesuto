@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自己紹介</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f0f8ff;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #0073e6;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: move;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #0073e6;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 10px;
+            text-decoration: none;
+            color: #0073e6;
+            font-weight: bold;
+            border: 2px solid #0073e6;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .social-links a:hover {
+            background-color: #0073e6;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let container = document.querySelector(".container");
+            let offsetX, offsetY, isDragging = false;
+
+            container.addEventListener("mousedown", function (e) {
+                isDragging = true;
+                offsetX = e.clientX - container.offsetLeft;
+                offsetY = e.clientY - container.offsetTop;
+            });
+
+            document.addEventListener("mousemove", function (e) {
+                if (isDragging) {
+                    container.style.left = e.clientX - offsetX + "px";
+                    container.style.top = e.clientY - offsetY + "px";
+                }
+            });
+
+            document.addEventListener("mouseup", function () {
+                isDragging = false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="aa.jpg" alt="プロフィール画像">
+        <p>こんにちは！私はロタです。下記のリンクはクリックすると私のX、github、好きなキャラクターのリンクのサイトです。</p>
+        <div class="social-links">
+            <a href="https://x.com/fj3W4toTDmS0IQO/photo">Twitter</a>
+            <a href="https://github.com/miura0117">GitHub</a>
+            <a href="https://www.tbs.co.jp/anime/5hanayome/character/chara02.html" target="_blank">好きなキャラクター情報</a>
+        </div>
+    </div>
+</body>
+</html>
+
